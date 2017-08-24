@@ -199,7 +199,7 @@ class ModalListItem extends React.Component {
                   <label for="exampleTextarea">Ingredients</label>
                   <textarea className="form-control" id="exampleTextarea" rows="3" value={this.state.ingredients}
                     onChange={(event) => this.setState({ingredients: event.target.value})}></textarea>
-                  <small id="ingredientsHelp" class="form-text text-muted">Enter ingredients separated by a '+'</small>
+                  <small id="ingredientsHelp" className="form-text text-muted">Enter ingredients separated by a '+'</small>
                 </div>
                 <div className="form-group">
                   <label for="exampleTextarea">Method</label>
