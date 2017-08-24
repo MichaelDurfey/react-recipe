@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
+
+.collapsible-header {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+}
+
+.collapsible-body {
+  padding: 30px 124px 124px 124px;
+  position: relative;
+}
+
+.buttons {
+  margin: 20px;
+}
+
+.collection {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  margin-bottom: 40px!important;
+}
+.recipeText {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 19px;
+}
+
+.ingredientHeader {
+  padding: 25px;
+}
+
+.methodHeader{
+  padding: 25px;
+}
+
+#app {
+/*   height: 100%; */
+  margin-top: 100px;
+  margin-bottom: 300px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: url('http://i.imgur.com/YV5a9Xp.jpg') no-repeat center center fixed;
+  background-size: cover;
+  
+}
