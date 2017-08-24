@@ -14,7 +14,7 @@ class Modal extends React.Component {
             method: undefined
           } 
         ]
-      }
+      };
   }
 
   
