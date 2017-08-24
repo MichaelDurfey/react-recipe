@@ -50,14 +50,14 @@ class Modal extends React.Component {
                     onChange={(event) => {this.state.newRecipe[0].ingredients = event.target.value
                                          this.setState(this.state);
                                          }}></textarea>
-                  <small id="ingredientsHelp" class="form-text text-muted">Enter ingredients separated by a '+'</small>
+                  <small id="ingredientsHelp" className="form-text text-muted">Enter ingredients separated by a '+'</small>
                 </div>
                 <div className="form-group">
                   <label for="exampleTextarea">Method</label>
                   <textarea className="form-control" id="exampleTextarea" rows="3" 
                     onChange={(event) => {this.state.newRecipe[0].method = event.target.value
                                          this.setState(this.state)}}></textarea>
-                  <small id="methodHelp" class="form-text text-muted">Enter method steps separated by a '+'</small>
+                  <small id="methodHelp" className="form-text text-muted">Enter method steps separated by a '+'</small>
                 </div>
               </form>
             </div>
@@ -77,7 +77,7 @@ class RecipeList extends React.Component{
   render(){
   let listItem = this.props.recipes.map( (item, index) => {
     return (
-    <div>
+    <div key={index}>
       <RecipeListItem 
         title={item.title}
         ingredients={item.ingredients}
@@ -105,29 +105,30 @@ class RecipeList extends React.Component{
 
 const RecipeListItem = (props) => {
   console.log(props)
-  const IngredientListItem = ({ingredient}) => {
+  const IngredientListItem = (props) => {
   return (
-      <li className="list-group-item recipeText">{ingredient}</li>
+      <li className="list-group-item recipeText">{props.ingredient}</li>
   )  
 } // END IngredientListItem
 
   
-  const ingredientList = props.ingredients.split('+').map( item => {
+  const ingredientList = props.ingredients.split('+').map( (item, index) => {
     return (
       <IngredientListItem
         ingredient={item}
+        key={index}
       />
     )
   })
   
   const methodList = props.method.split('+').map( (item, index) => {
     return ( 
-      <li className = "list-group-item recipeText">{item}</li>
+      <li className = "list-group-item recipeText" key={index}>{item}</li>
     )
   })
   
   return (
-    <div>
+    <div key={props.index}>
      <div className="card">
         <div className="card-header d-flex justify-content-between p-2 align-items-center" role="tab" id={'heading' + props.index}>
           <h5 className="mb-0">
@@ -178,7 +179,7 @@ class ModalListItem extends React.Component {
   render() {
     
     return (
-      <div>
+      <div key={this.props.index}>
       <div className="modal fade" id={'editModal' + this.props.index} tabindex="-1" role="dialog" aria-labelledby={'editModal' + this.props.index} aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -205,7 +206,7 @@ class ModalListItem extends React.Component {
                   <label for="exampleTextarea">Method</label>
                   <textarea className="form-control" id="exampleTextarea" rows="3" value={this.state.method}
                     onChange={(event) => this.setState({method: event.target.value})}></textarea>
-                  <small id="methodHelp" class="form-text text-muted">Enter method steps separated by a '+'</small>
+                  <small id="methodHelp" className="form-text text-muted">Enter method steps separated by a '+'</small>
                 </div>
               </form>
             </div>
